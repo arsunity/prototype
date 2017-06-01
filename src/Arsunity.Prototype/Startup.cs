@@ -48,6 +48,10 @@ namespace Arsunity.Prototype
                 app.UseDeveloperExceptionPage();
             }
 
+            var options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("start.html");
+            app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
             app.Run(async context =>
