@@ -1,3 +1,4 @@
 src/Arsunity.Prototype/bin/
 src/Arsunity.Prototype/obj/
 src/.vs/Arsunity.Prototype/v14/.suo
+*.user

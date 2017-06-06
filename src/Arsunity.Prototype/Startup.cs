@@ -23,6 +23,7 @@ namespace Arsunity.Prototype
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +54,14 @@ namespace Arsunity.Prototype
             options.DefaultFileNames.Add("start.html");
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
+
+            app.UseMvc(
+                routes =>
+                    {
+                        routes.MapRoute(
+                            name: "default", 
+                            template: "{controller=Home}/{action=Index}/{id?}");
+                    });
 
             app.Run(async context =>
             {
