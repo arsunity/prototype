@@ -3,3 +3,7 @@ src/Arsunity.Prototype/obj/
 src/.vs/Arsunity.Prototype/v14/.suo
 *.user
 *.suo
+src/Arsunity.DataAccess/bin/
+src/Arsunity.DataAccess/obj/
+src/Arsunity.Interfaces/obj/
+src/Arsunity.Interfaces/bin/
