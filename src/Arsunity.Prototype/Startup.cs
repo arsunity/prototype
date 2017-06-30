@@ -66,8 +66,8 @@ namespace Arsunity.Prototype
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
-            var userServices = app.ApplicationServices.GetService<IUserDataAccessor>();
-            var users = userServices.GetAllUsers().ToList();
+            var dataInitializer = app.ApplicationServices.GetService<IDataInitializer>();
+            dataInitializer.Init();
 
             app.UseMvc(
                 routes =>

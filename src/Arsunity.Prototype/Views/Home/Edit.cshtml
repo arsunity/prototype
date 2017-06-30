@@ -1,0 +1,34 @@
+﻿@model Arsunity.Interfaces.DataAccess.Models.User
+
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>Редактирование пользователя</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+    <h2>Редактирование пользователя</h2>
+    <form method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <table>
+            <tr>
+                <td>Логин</td>
+                <td><input type="text" name="Login" value="@Model.Login"/></td>
+            </tr>
+            <tr>
+                <td>Пароль</td>
+                <td><input type="text" name="Password" value="@Model.Password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Сохранить"/></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

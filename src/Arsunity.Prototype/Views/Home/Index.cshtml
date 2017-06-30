@@ -1,15 +1,31 @@
-﻿@{
+﻿@model IEnumerable<Arsunity.Interfaces.DataAccess.Models.User>
+
+@{
     Layout = null;
 }
 
 <!doctype html>
 <html>
 <head>
-    <title>Arsunity home</title>
+    <title>Список пользователей</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-    <h2>Greetings!</h2>
+    <h2>Пользователи системы</h2>
+    <table>
+        <tr>
+            <th>Логин</th>
+            <th>Пароль</th>
+        </tr>
+        @foreach(var user in Model)
+        {
+            <tr>
+                <td>@user.Login</td>
+                <td>@user.Password</td>
+                <td><a href="~/home/edit/@user.Id">Редактировать</a></td>
+            </tr>
+        }
+    </table>
 </body>
 </html>
