@@ -1,7 +1,8 @@
 ﻿@model Arsunity.Interfaces.DataAccess.Models.User
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Редактирование пользователя системы";
+    Layout = "_Layout";
 }
 
 <!doctype html>
@@ -13,22 +14,25 @@
 </head>
 <body>
     <h2>Редактирование пользователя</h2>
-    <form method="post">
+    <form method="post" class="form-horizontal" role="form">
         <input type="hidden" name="Id" value="@Model.Id" />
-        <table>
-            <tr>
-                <td>Логин</td>
-                <td><input type="text" name="Login" value="@Model.Login"/></td>
-            </tr>
-            <tr>
-                <td>Пароль</td>
-                <td><input type="text" name="Password" value="@Model.Password" /></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Сохранить"/></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="Login" class="col-md-2 control-label">Логин</label>
+            <div class="col-md-4">
+                <input type="text" name="Login" class="form-control" value="@Model.Login" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Password" class="col-md-2 control-label">Пароль</label>
+            <div class="col-md-4">
+                <input type="text" name="Password" class="form-control" value="@Model.Password" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Сохранить" />
+            </div>
+        </div>
     </form>
 </body>
 </html>

@@ -1,31 +1,22 @@
 ﻿@model IEnumerable<Arsunity.Interfaces.DataAccess.Models.User>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Список пользователей системы";
+    Layout = "_Layout";
 }
 
-<!doctype html>
-<html>
-<head>
-    <title>Список пользователей</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width">
-</head>
-<body>
-    <h2>Пользователи системы</h2>
-    <table>
+<h2>Пользователи системы</h2>
+<table class="table-condensed">
+    <tr>
+        <th>Логин</th>
+        <th>Пароль</th>
+    </tr>
+    @foreach (var user in Model)
+    {
         <tr>
-            <th>Логин</th>
-            <th>Пароль</th>
+            <td>@user.Login</td>
+            <td>@user.Password</td>
+            <td><a href="~/home/edit/@user.Id">Редактировать</a></td>
         </tr>
-        @foreach(var user in Model)
-        {
-            <tr>
-                <td>@user.Login</td>
-                <td>@user.Password</td>
-                <td><a href="~/home/edit/@user.Id">Редактировать</a></td>
-            </tr>
-        }
-    </table>
-</body>
-</html>
+    }
+</table>
