@@ -1,4 +1,5 @@
-﻿namespace Arsunity.Prototype
+﻿// ReSharper disable ClassNeverInstantiated.Global
+namespace Arsunity.Prototype
 {
     using System.IO;
     using Microsoft.AspNetCore.Hosting;

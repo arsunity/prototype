@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Arsunity.Interfaces.DataAccess.Models.User>
+﻿@model Arsunity.Interfaces.Repositories.IUserRepository
 
 @{
     ViewData["Title"] = "Список пользователей системы";
@@ -6,17 +6,5 @@
 }
 
 <h2>Пользователи системы</h2>
-<table class="table-condensed">
-    <tr>
-        <th>Логин</th>
-        <th>Пароль</th>
-    </tr>
-    @foreach (var user in Model)
-    {
-        <tr>
-            <td>@user.Login</td>
-            <td>@user.Password</td>
-            <td><a href="~/home/edit/@user.Id">Редактировать</a></td>
-        </tr>
-    }
-</table>
+
+@await Component.InvokeAsync("Grid", new { repository = Model, editUrl = "home/edit/" })

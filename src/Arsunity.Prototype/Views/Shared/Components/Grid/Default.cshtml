@@ -1,0 +1,19 @@
+﻿@model Arsunity.Interfaces.Grid.GridContext
+
+<table class="table-condensed">
+    <tr>
+        @foreach (var title in Model.Titles)
+        {
+            <th>@title</th>
+        }
+    </tr>
+    @foreach (var rowData in Model.Data)
+    {
+        <tr>
+            <td>@rowData.Cells[0].Value</td>
+            <td>@rowData.Cells[1].Value</td>
+            <td><a href="@(Model.EditUrl + rowData.Id)">Редактировать</a></td>
+        </tr>
+    }
+
+</table>

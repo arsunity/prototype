@@ -1,31 +1,41 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
 namespace Arsunity.Prototype
 {
+    using Arsunity.DataAccess.IoC;
+    using Arsunity.Interfaces.DataAccess.Interfaces;
+    using Arsunity.Prototype.Repositories;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Configuration;
-    using Arsunity.DataAccess.IoC;
-    using Arsunity.Interfaces.DataAccess.Interfaces;
-    using System.Linq;
 
     /// <summary>
     /// The startup.
     /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Startup"/> class.
+        /// </summary>
+        /// <param name="env">
+        /// The env.
+        /// </param>
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            this.Configuration = builder.Build();
         }
 
-        public IConfiguration Configuration { get; set; }
+        /// <summary>
+        /// Gets or sets the configuration.
+        /// </summary>
+        private IConfiguration Configuration { get; set; }
 
         /// <summary>
         /// The configure services.
@@ -35,7 +45,8 @@ namespace Arsunity.Prototype
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDataAccessServices(Configuration.GetConnectionString("PrototypeConnection"));
+            services.AddDataAccessServices(this.Configuration.GetConnectionString("PrototypeConnection"));
+            services.AddRepositoryServices();
             services.AddMvc();
         }
 

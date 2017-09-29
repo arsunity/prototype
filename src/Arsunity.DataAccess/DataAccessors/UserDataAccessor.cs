@@ -1,57 +1,106 @@
-﻿using System.Collections.Generic;
-using Arsunity.Interfaces.DataAccess.Interfaces;
-using Arsunity.Interfaces.DataAccess.Models;
-using Arsunity.DataAccess.DataContexts;
-using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
+﻿// ReSharper disable ClassNeverInstantiated.Global
 namespace Arsunity.DataAccess.DataAccessors
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Arsunity.DataAccess.DataContexts;
+    using Arsunity.Interfaces.DataAccess.Interfaces;
+    using Arsunity.Interfaces.DataAccess.Models;
+
+    using Microsoft.EntityFrameworkCore;
+
+    /// <summary>
+    /// The user data accessor.
+    /// </summary>
     internal class UserDataAccessor : IUserDataAccessor
     {
-        private readonly PrototypeDbContext Context;
+        /// <summary>
+        /// The context.
+        /// </summary>
+        private readonly PrototypeDbContext context;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserDataAccessor"/> class.
+        /// </summary>
+        /// <param name="context">
+        /// The context.
+        /// </param>
         public UserDataAccessor(PrototypeDbContext context)
         {
-            Context = context;
+            this.context = context;
         }
 
+        /// <summary>
+        /// The check users.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
         public bool CheckUsers()
         {
-            return Context.Users.Any();
+            return this.context.Users.Any();
         }
 
+        /// <summary>
+        /// The get all users.
+        /// </summary>
+        /// <returns>
+        /// All users
+        /// </returns>
         public IEnumerable<User> GetAllUsers()
         {
-            return Context.Users.AsNoTracking();
+            return this.context.Users.AsNoTracking();
         }
 
+        /// <summary>
+        /// The get user by id.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="User"/>.
+        /// </returns>
         public User GetUserById(Guid id)
         {
-            return Context.Users.Where(x => x.Id == id).AsNoTracking().Single();
+            return this.context.Users.Where(x => x.Id == id).AsNoTracking().Single();
         }
 
+        /// <summary>
+        /// The save user.
+        /// </summary>
+        /// <param name="user">
+        /// The user.
+        /// </param>
         public void SaveUser(User user)
         {
-            var existUser = Context.Users.Where(x => x.Id == user.Id).SingleOrDefault();
+            var existUser = this.context.Users.SingleOrDefault(x => x.Id == user.Id);
 
             if (existUser == null)
             {
-                Context.Users.Add(user);
+                this.context.Users.Add(user);
             }
             else
             {
                 existUser.Login = user.Login;
                 existUser.Password = user.Password;
             }
-            Context.SaveChanges();
+
+            this.context.SaveChanges();
         }
 
+        /// <summary>
+        /// The add users.
+        /// </summary>
+        /// <param name="users">
+        /// The users.
+        /// </param>
         public void AddUsers(IEnumerable<User> users)
         {
-            Context.Users.AddRange(users);
-            Context.SaveChanges();
+            this.context.Users.AddRange(users);
+            this.context.SaveChanges();
         }
     }
 }

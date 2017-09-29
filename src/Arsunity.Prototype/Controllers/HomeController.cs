@@ -1,21 +1,31 @@
-﻿namespace Arsunity.Prototype.Controllers
+﻿// ReSharper disable InheritdocConsiderUsage
+namespace Arsunity.Prototype.Controllers
 {
-    using Arsunity.Interfaces.DataAccess.Interfaces;
-    using Arsunity.Interfaces.DataAccess.Models;
-    using Microsoft.AspNetCore.Mvc;
     using System;
-    using System.Linq;
+    using Arsunity.Interfaces.DataAccess.Models;
+    using Arsunity.Interfaces.Repositories;
+
+    using Microsoft.AspNetCore.Mvc;
 
     /// <summary>
     /// The home controller.
     /// </summary>
     public class HomeController : Controller
     {
-        private readonly IUserDataAccessor userDataAccessor;
+        /// <summary>
+        /// The user data accessor.
+        /// </summary>
+        private readonly IUserRepository repository;
 
-        public HomeController(IUserDataAccessor userDataAccessor)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class.
+        /// </summary>
+        /// <param name="repository">
+        /// The repository.
+        /// </param>
+        public HomeController(IUserRepository repository)
         {
-            this.userDataAccessor = userDataAccessor;
+            this.repository = repository;
         }
 
         /// <summary>
@@ -26,21 +36,38 @@
         /// </returns>
         public IActionResult Index()
         {
-            var users = userDataAccessor.GetAllUsers().ToList();
-            return this.View(users);
+            return this.View(this.repository);
         }
 
+        /// <summary>
+        /// The edit.
+        /// </summary>
+        /// <param name="id">
+        /// The id.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IActionResult"/>.
+        /// </returns>
         [HttpGet]
         public IActionResult Edit(Guid id)
         {
-            var user = userDataAccessor.GetUserById(id);
+            var user = this.repository.GetUserById(id);
             return this.View(user);
         }
 
+        /// <summary>
+        /// The edit.
+        /// </summary>
+        /// <param name="user">
+        /// The user.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IActionResult"/>.
+        /// </returns>
         [HttpPost]
         public IActionResult Edit(User user)
         {
-            userDataAccessor.SaveUser(user);
+            this.repository.SaveUser(user);
             return this.RedirectToAction("Index");
         }
     }
