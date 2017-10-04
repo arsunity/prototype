@@ -6,6 +6,7 @@ namespace Arsunity.Prototype.Repositories
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using System.Threading.Tasks;
 
     using Arsunity.Interfaces.Grid;
     using Arsunity.Interfaces.Repositories;
@@ -50,11 +51,11 @@ namespace Arsunity.Prototype.Repositories
         /// <returns>
         /// Grid data
         /// </returns>
-        public IEnumerable<GridRowData> GetGridData()
+        public async Task<IEnumerable<GridRowData>> GetGridData()
         {
             var result = new List<GridRowData>();
 
-            var entities = this.LoadDataFromDb();
+            var entities = await this.LoadDataFromDb();
             foreach (var entity in entities)
             {
                 var entityType = entity.GetType();
@@ -79,6 +80,6 @@ namespace Arsunity.Prototype.Repositories
         /// <returns>
         /// Grid data from database
         /// </returns>
-        protected abstract IEnumerable<T> LoadDataFromDb();
+        protected abstract Task<IEnumerable<T>> LoadDataFromDb();
     }
 }

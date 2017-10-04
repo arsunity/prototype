@@ -6,6 +6,7 @@ namespace Arsunity.Prototype.Repositories
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using Arsunity.Interfaces.DataAccess.Interfaces;
     using Arsunity.Interfaces.DataAccess.Models;
@@ -63,10 +64,9 @@ namespace Arsunity.Prototype.Repositories
         /// <returns>
         /// Users for grid
         /// </returns>
-        protected override IEnumerable<User> LoadDataFromDb()
+        protected override async Task<IEnumerable<User>> LoadDataFromDb()
         {
-            var users = this.userDataAccessor.GetAllUsers().ToList();
-            return users;
+            return await this.userDataAccessor.GetAllUsers();
         }
     }
 }

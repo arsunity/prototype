@@ -1,6 +1,8 @@
 ﻿// ReSharper disable InheritdocConsiderUsage
 namespace Arsunity.Prototype.Components
 {
+    using System.Threading.Tasks;
+
     using Arsunity.Interfaces.Grid;
     using Arsunity.Interfaces.Repositories;
 
@@ -23,9 +25,9 @@ namespace Arsunity.Prototype.Components
         /// <returns>
         /// The <see cref="string"/>.
         /// </returns>
-        public IViewComponentResult Invoke(IRepository repository, string editUrl)
+        public async Task<IViewComponentResult> InvokeAsync(IRepository repository, string editUrl)
         {
-            var gridContext = new GridContext { Titles = repository.Titles(), Data = repository.GetGridData(), EditUrl = editUrl };
+            var gridContext = new GridContext { Titles = repository.Titles(), Data = await repository.GetGridData(), EditUrl = editUrl };
             return this.View(gridContext);
         }
     }

@@ -1,9 +1,11 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable InheritdocConsiderUsage
 namespace Arsunity.DataAccess.DataAccessors
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
 
     using Arsunity.DataAccess.DataContexts;
     using Arsunity.Interfaces.DataAccess.Interfaces;
@@ -49,9 +51,9 @@ namespace Arsunity.DataAccess.DataAccessors
         /// <returns>
         /// All users
         /// </returns>
-        public IEnumerable<User> GetAllUsers()
+        public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return this.context.Users.AsNoTracking();
+            return await this.context.Users.AsNoTracking().ToListAsync();
         }
 
         /// <summary>

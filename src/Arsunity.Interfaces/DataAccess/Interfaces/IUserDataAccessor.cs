@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     using Arsunity.Interfaces.DataAccess.Models;
 
@@ -24,7 +25,7 @@
         /// <returns>
         /// All users
         /// </returns>
-        IEnumerable<User> GetAllUsers();
+        Task<IEnumerable<User>> GetAllUsers();
 
         /// <summary>
         /// The get user by id.

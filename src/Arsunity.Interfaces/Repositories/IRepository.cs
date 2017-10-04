@@ -1,6 +1,7 @@
 ﻿namespace Arsunity.Interfaces.Repositories
 {
     using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     using Arsunity.Interfaces.Grid;
 
@@ -23,6 +24,6 @@
         /// <returns>
         /// Grid data
         /// </returns>
-        IEnumerable<GridRowData> GetGridData();
+        Task<IEnumerable<GridRowData>> GetGridData();
     }
 }
