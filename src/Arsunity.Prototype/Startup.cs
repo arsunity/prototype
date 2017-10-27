@@ -3,8 +3,10 @@ namespace Arsunity.Prototype
 {
     using Arsunity.DataAccess.IoC;
     using Arsunity.Interfaces.DataAccess.Interfaces;
+    using Arsunity.Interfaces.DataAccess.Models;
     using Arsunity.Prototype.Repositories;
-
+    using Arsunity.Prototype.ViewModels;
+    using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -79,6 +81,8 @@ namespace Arsunity.Prototype
 
             var dataInitializer = app.ApplicationServices.GetService<IDataInitializer>();
             dataInitializer.Init();
+
+            Mapper.Initialize(cfg => { cfg.CreateMap<User, UserVm>(); cfg.CreateMap<UserVm, User>(); });
 
             app.UseMvc(
                 routes =>

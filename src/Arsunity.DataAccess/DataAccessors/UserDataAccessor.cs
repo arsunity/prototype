@@ -53,7 +53,7 @@ namespace Arsunity.DataAccess.DataAccessors
         /// </returns>
         public async Task<IEnumerable<User>> GetAllUsers()
         {
-            return await this.context.Users.AsNoTracking().ToListAsync();
+            return await this.context.Users.ToListAsync();
         }
 
         /// <summary>

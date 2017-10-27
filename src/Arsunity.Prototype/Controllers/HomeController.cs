@@ -6,6 +6,8 @@ namespace Arsunity.Prototype.Controllers
     using Arsunity.Interfaces.Repositories;
 
     using Microsoft.AspNetCore.Mvc;
+    using AutoMapper;
+    using Arsunity.Prototype.ViewModels;
 
     /// <summary>
     /// The home controller.
@@ -51,7 +53,7 @@ namespace Arsunity.Prototype.Controllers
         [HttpGet]
         public IActionResult Edit(Guid id)
         {
-            var user = this.repository.GetUserById(id);
+            var user = Mapper.Map<UserVm>(this.repository.GetUserById(id));
             return this.View(user);
         }
 
@@ -65,9 +67,9 @@ namespace Arsunity.Prototype.Controllers
         /// The <see cref="IActionResult"/>.
         /// </returns>
         [HttpPost]
-        public IActionResult Edit(User user)
+        public IActionResult Edit(UserVm user)
         {
-            this.repository.SaveUser(user);
+            this.repository.SaveUser(Mapper.Map<User>(user));
             return this.RedirectToAction("Index");
         }
     }
