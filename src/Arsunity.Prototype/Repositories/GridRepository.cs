@@ -67,7 +67,7 @@ namespace Arsunity.Prototype.Repositories
                 }
 
                 var keyProperties = properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType == typeof(GridTitleAttribute)));
-                var values = keyProperties.Select(p => p.GetValue(entity).ToString());
+                var values = keyProperties.Select(p => p.GetValue(entity)?.ToString());
                 result.Add(new GridRowData { Id = (Guid)idProperty.GetValue(entity), Cells = new List<GridCellData>(values.Select(v => new GridCellData { Value = v })) });
             }
 
