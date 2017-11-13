@@ -1,12 +1,10 @@
 ﻿// ReSharper disable InheritdocConsiderUsage
-namespace Arsunity.Prototype.Components
+namespace Arsunity.Grid.Components
 {
     using System.Threading.Tasks;
-
-    using Arsunity.Interfaces.Grid;
-    using Arsunity.Interfaces.Repositories;
-
     using Microsoft.AspNetCore.Mvc;
+    using Arsunity.Grid.Interfaces;
+    using Arsunity.Grid.Models;
 
     /// <summary>
     /// The grid view component.

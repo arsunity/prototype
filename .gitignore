@@ -9,3 +9,5 @@ src/Arsunity.Interfaces/obj/
 src/Arsunity.Interfaces/bin/
 src/Arsunity.Prototype/wwwroot/lib/
 src/.vs/
+src/Arsunity.Grid/obj/
+src/Arsunity.Grid/bin/

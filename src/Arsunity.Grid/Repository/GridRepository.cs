@@ -1,16 +1,15 @@
 ﻿// ReSharper disable UnusedMember.Global
 // ReSharper disable InheritdocConsiderUsage
-namespace Arsunity.Prototype.Repositories
+namespace Arsunity.Grid.Repository
 {
+    using Arsunity.Grid.Attributes;
+    using Arsunity.Grid.Interfaces;
+    using Arsunity.Grid.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using System.Threading.Tasks;
-
-    using Arsunity.Interfaces.Grid;
-    using Arsunity.Interfaces.Repositories;
-    using Arsunity.Interfaces.Repositories.Attributes;
 
     /// <summary>
     /// The grid repository.

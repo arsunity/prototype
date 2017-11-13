@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.Prototype", "Arsunity.Prototype\Arsunity.Prototype.csproj", "{069A3151-9EAA-4095-BEF5-5EB512D13BDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arsunity.DataAccess", "Arsunity.DataAccess\Arsunity.DataAccess.csproj", "{4DC5DE60-907C-4690-8DA0-11C8C65638DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.DataAccess", "Arsunity.DataAccess\Arsunity.DataAccess.csproj", "{4DC5DE60-907C-4690-8DA0-11C8C65638DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arsunity.Interfaces", "Arsunity.Interfaces\Arsunity.Interfaces.csproj", "{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.Interfaces", "Arsunity.Interfaces\Arsunity.Interfaces.csproj", "{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arsunity.Grid", "Arsunity.Grid\Arsunity.Grid.csproj", "{8458C7B3-12DC-4C10-9766-47857AEAF588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +29,15 @@ Global
 		{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F24B76A-2BA9-43D2-B028-D795B312D01E}
 	EndGlobalSection
 EndGlobal

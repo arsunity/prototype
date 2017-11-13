@@ -1,9 +1,8 @@
-﻿namespace Arsunity.Interfaces.Repositories
+﻿namespace Arsunity.Grid.Interfaces
 {
+    using Arsunity.Grid.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
-    using Arsunity.Interfaces.Grid;
 
     /// <summary>
     /// The Repository interface.

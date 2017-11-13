@@ -1,4 +1,4 @@
-﻿namespace Arsunity.Interfaces.Grid
+﻿namespace Arsunity.Grid.Models
 {
     using System.Collections.Generic;
 

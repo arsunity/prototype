@@ -1,5 +1,5 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
-namespace Arsunity.Interfaces.Grid
+namespace Arsunity.Grid.Models
 {
     using System;
     using System.Collections.Generic;

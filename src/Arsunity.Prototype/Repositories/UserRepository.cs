@@ -5,17 +5,20 @@ namespace Arsunity.Prototype.Repositories
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using Arsunity.Interfaces.DataAccess.Interfaces;
     using Arsunity.Interfaces.DataAccess.Models;
     using Arsunity.Interfaces.Repositories;
+    using Arsunity.Grid.Repository;
+    using Arsunity.Prototype.ViewModels;
+    using System.Linq;
+    using AutoMapper;
 
     /// <summary>
     /// The user repository.
     /// </summary>
-    public class UserRepository : GridRepository<User>, IUserRepository
+    public class UserRepository : GridRepository<GridUserVm>, IUserRepository
     {
         /// <summary>
         /// The user data accessor.
@@ -64,9 +67,11 @@ namespace Arsunity.Prototype.Repositories
         /// <returns>
         /// Users for grid
         /// </returns>
-        protected override async Task<IEnumerable<User>> LoadDataFromDb()
+        protected override async Task<IEnumerable<GridUserVm>> LoadDataFromDb()
         {
-            return await this.userDataAccessor.GetAllUsers();
+            var models = await this.userDataAccessor.GetAllUsers();
+            var result = models.Select(m => Mapper.Map<GridUserVm>(m)).ToList();
+            return result;
         }
     }
 }

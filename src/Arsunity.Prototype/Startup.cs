@@ -12,7 +12,9 @@ namespace Arsunity.Prototype
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.Extensions.Logging;
+    using System.Runtime.Loader;
 
     /// <summary>
     /// The startup.
@@ -49,7 +51,13 @@ namespace Arsunity.Prototype
         {
             services.AddDataAccessServices(this.Configuration.GetConnectionString("PrototypeConnection"));
             services.AddRepositoryServices();
-            services.AddMvc();
+            var assembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new System.Reflection.AssemblyName(@"Arsunity.Grid"));
+            services.AddMvc().AddApplicationPart(assembly).AddRazorOptions(
+              o =>
+              {
+                  o.FileProviders.Add(new EmbeddedFileProvider(assembly, assembly.GetName().Name));
+              }
+            );
         }
 
         /// <summary>
@@ -82,7 +90,7 @@ namespace Arsunity.Prototype
             var dataInitializer = app.ApplicationServices.GetService<IDataInitializer>();
             dataInitializer.Init();
 
-            Mapper.Initialize(cfg => { cfg.CreateMap<User, UserVm>(); cfg.CreateMap<UserVm, User>(); });
+            Mapper.Initialize(cfg => { cfg.CreateMap<User, UserVm>(); cfg.CreateMap<UserVm, User>(); cfg.CreateMap<User, GridUserVm>(); cfg.CreateMap<UserVm, GridUserVm>(); });
 
             app.UseMvc(
                 routes =>

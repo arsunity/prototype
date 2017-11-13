@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InheritdocConsiderUsage
-namespace Arsunity.Interfaces.Repositories.Attributes
+namespace Arsunity.Grid.Attributes
 {
     using System;
 

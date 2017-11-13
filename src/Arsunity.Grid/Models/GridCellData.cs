@@ -1,5 +1,5 @@
 ﻿// ReSharper disable ClassNeverInstantiated.Global
-namespace Arsunity.Interfaces.Grid
+namespace Arsunity.Grid.Models
 {
     /// <summary>
     /// The grid cell data.
