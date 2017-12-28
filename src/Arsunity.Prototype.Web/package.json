@@ -1,0 +1,22 @@
+{
+  "name": "arsunity",
+  "version": "0.0.0",
+  "description": "Angular 5 prototype project",
+  "author": "Vladimir Nikolaev",
+  "scripts": {
+    "dev": "webpack-dev-server --hot --open",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@angular/common": "~5.0.0",
+    "@angular/compiler": "~5.0.0",
+    "@angular/core": "~5.0.0",
+    "@angular/forms": "~5.0.0",
+    "@angular/platform-browser": "~5.0.0",
+    "@angular/platform-browser-dynamic": "~5.0.0",
+    "@angular/router": "~5.0.0",
+    "typescript": "2.6.2",
+    "webpack": "3.10.0",
+    "webpack-hot-middleware": "2.21.0"
+  }
+}
