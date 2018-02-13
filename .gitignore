@@ -11,3 +11,7 @@ src/Arsunity.Prototype/wwwroot/lib/
 src/.vs/
 src/Arsunity.Grid/obj/
 src/Arsunity.Grid/bin/
+src/Arsunity.Prototype.Web/bin/
+src/Arsunity.Prototype.Web/node_modules/
+src/Arsunity.Prototype.Web/obj/
+src/Arsunity.Prototype.Web/wwwroot/

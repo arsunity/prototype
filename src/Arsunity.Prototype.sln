@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.DataAccess", "Arsu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.Interfaces", "Arsunity.Interfaces\Arsunity.Interfaces.csproj", "{FC6973E9-DFD3-4C24-A7CE-E71AF9309469}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arsunity.Grid", "Arsunity.Grid\Arsunity.Grid.csproj", "{8458C7B3-12DC-4C10-9766-47857AEAF588}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arsunity.Grid", "Arsunity.Grid\Arsunity.Grid.csproj", "{8458C7B3-12DC-4C10-9766-47857AEAF588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "angtest", "angtest\angtest.csproj", "{08430151-912D-42A1-AAA9-AB263A626989}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arsunity.Prototype.Web", "Arsunity.Prototype.Web\Arsunity.Prototype.Web.csproj", "{69095E64-343B-490D-BE48-0B2339479BB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8458C7B3-12DC-4C10-9766-47857AEAF588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08430151-912D-42A1-AAA9-AB263A626989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08430151-912D-42A1-AAA9-AB263A626989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08430151-912D-42A1-AAA9-AB263A626989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08430151-912D-42A1-AAA9-AB263A626989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69095E64-343B-490D-BE48-0B2339479BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69095E64-343B-490D-BE48-0B2339479BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69095E64-343B-490D-BE48-0B2339479BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69095E64-343B-490D-BE48-0B2339479BB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
